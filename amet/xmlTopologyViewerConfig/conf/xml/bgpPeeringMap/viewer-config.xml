@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ viewer-config.xml
+  ~
+  ~ This work is free software; you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published
+  ~ by the Free Software Foundation; either version 2 of the License,
+  ~ or (at your option) any later version.
+  ~
+  ~ This work is distributed in the hope that it will be useful, but
+  ~ WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program; if not, write to the Free Software
+  ~ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+  ~ USA
+  ~
+  ~ Copyright (c) 2010-2016 iTransformers Labs. All rights reserved.
+  -->
+
+<topology-viewer-conf>
+    <dataMatcher name="default" class="net.itransformers.topologyviewer.config.models.datamatcher.impl.StringEquals"/>
+    <dataMatcher name="gt" class="net.itransformers.topologyviewer.config.models.datamatcher.impl.GreaterThen"/>
+    <dataMatcher name="lt" class="net.itransformers.topologyviewer.config.models.datamatcher.impl.LessThen"/>
+    <dataMatcher name="ge" class="net.itransformers.topologyviewer.config.models.datamatcher.impl.GreaterOrEqual"/>
+    <dataMatcher name="le" class="net.itransformers.topologyviewer.config.models.datamatcher.impl.LessOrEqual"/>
+    <dataMatcher name="be" class="net.itransformers.topologyviewer.config.models.datamatcher.impl.BetweenInterval"/>
+    <dataMatcher name="beoq" class="net.itransformers.topologyviewer.config.models.datamatcher.impl.BetweenOrEqualInterval"/>
+
+    <icon name="/images/small_greendot.png">
+        <data key="IPv4Flag">TRUE</data>
+    <data key="IPv6Flag">TRUE</data>
+<data key="IPv4AddressSpace" matcher="le">4096</data>
+        </icon>
+<icon name="/images/greendot.png">
+<data key="IPv4Flag">TRUE</data>
+<data key="IPv6Flag">TRUE</data>
+<data key="IPv4AddressSpace" matcher="be">4097,65534</data>
+    </icon>
+    <icon name="/images/large_greendot.png">
+<data key="IPv4Flag">TRUE</data>
+<data key="IPv6Flag">TRUE</data>
+<data key="IPv4AddressSpace" matcher="be">65535,16777214</data>
+        </icon>
+<icon name="/images/very_large_greendot.png">
+<data key="IPv4Flag">TRUE</data>
+<data key="IPv6Flag">TRUE</data>
+<data key="IPv4AddressSpace" matcher="gt">16777214</data>
+        </icon>
+<icon name="/images/small_red_dot.png">
+<data key="IPv4Flag">TRUE</data>
+<data key="IPv6Flag">FALSE</data>
+<data key="IPv4AddressSpace" matcher="le">4096</data>
+        </icon>
+<icon name="/images/red_dot.png">
+<data key="IPv4Flag">TRUE</data>
+<data key="IPv6Flag">FALSE</data>
+<data key="countOriginatedPrefixes" matcher="be">4097,65534</data>
+    </icon>
+
+    <icon name="/images/large_red_dot.png">
+<data key="IPv4Flag">TRUE</data>
+<data key="IPv6Flag">FALSE</data>
+<data key="IPv4AddressSpace" matcher="be">65535,16777214</data>
+        </icon>
+<icon name="/images/large_red_dot.png">
+<data key="IPv4Flag">TRUE</data>
+<data key="IPv6Flag">FALSE</data>
+<data key="IPv4AddressSpace" matcher="gt">16777214</data>
+        </icon>
+
+
+<filters>
+
+<filter name="ALL">
+    <include for="edge"/>
+    <include for="node"/>
+
+</filter>
+
+<filter name="diff">
+    <include dataKey="IPv4Flag" dataValue="TRUE" for="node"/>
+    <include dataKey="edge" dataValue="YES" for="edge"/>
+
+    <tooltip dataKey="diffs" for="node" transformer="net.itransformers.topologyviewer.nodetooltip.HTMLCSVNodeTooltipTransformer"/>
+    <tooltip dataKey="diffs" for="edge" transformer="net.itransformers.topologyviewer.edgetooltip.HTMLCSVEdgeTooltipTransformer"/>
+    I
+</filter>
+
+
+
+
+</filters>
+
+<hops selected="1">1,2,3,4,5,6,7,8,9,10</hops>
+
+<tooltip dataKey="edgeID" for="edge" transformer="net.itransformers.topologyviewer.edgetooltip.CSVEdgeTooltipTransformer"/>
+        <!-- this is also possible it could be used as default value-->
+<tooltip dataKey="ASInfo" for="node" transformer="net.itransformers.topologyviewer.nodetooltip.HTMLCSVNodeTooltipTransformer"/>
+<rightClickItem name="TabViewerOpener" handlerClass="net.itransformers.topologyviewer.rightclick.impl.TabbedViewerOpener">
+
+</rightClickItem>
+<rightClickItem name="ShortestPath" handlerClass="net.itransformers.topologyviewer.rightclick.impl.ShortestPath"/>
+<rightClickItem name="TabViewerOpener" handlerClass="net.itransformers.topologyviewer.rightclick.impl.TabbedViewerOpener"/>
+        <!--rightClickItem name="GraphmlEditor" handlerClass="net.itransformers.topologyviewer.rightclick.impl.XmlFileEditorHandler">
+                <param name="type">graphml</param>
+        </rightClickItem-->
+
+<rightClickItem name="RIPE" handlerClass="net.itransformers.topologyviewer.rightclick.impl.ASNRightClickOpener">
+
+<param name="protocol">http</param>
+<param name="org">ripe</param>
+<param name="url">http://apps.db.ripe.net/whois/lookup/RIPE/aut-num/</param>
+<param name="port">80</param>
+</rightClickItem>
+<rightClickItem name="ARIN" handlerClass="net.itransformers.topologyviewer.rightclick.impl.ASNRightClickOpener">
+<param name="protocol">http</param>
+<param name="org">arin</param>
+<param name="url">http://whois.arin.net/rest/asn/</param>
+<param name="port">80</param>
+</rightClickItem>
+
+        </topology-viewer-conf>

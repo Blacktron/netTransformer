@@ -15,6 +15,8 @@ public class ProjectTypeToTemplateResolver {
 
        } else if (ProjectConstants.bgpDiscovererProjectType.equals(projectType)) {
            return "projectTemplates/bgpPeeringMap.pfl";
+       } else if (ProjectConstants.openStackProjectType.equals(projectType)) {
+           return "projectTemplates/openStack.pfl";
        }
        else
            return null;

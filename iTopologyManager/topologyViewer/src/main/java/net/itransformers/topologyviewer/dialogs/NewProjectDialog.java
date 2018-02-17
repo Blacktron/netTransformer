@@ -102,7 +102,7 @@ public class NewProjectDialog extends JDialog {
             contentPanel.add(label);
         }
         {
-            String[] projectTypeNames = {ProjectConstants.snmpProjectName, ProjectConstants.bgpDiscovererName, ProjectConstants.freeGraphDiscovererName};
+            String[] projectTypeNames = {ProjectConstants.snmpProjectName, ProjectConstants.bgpDiscovererName, ProjectConstants.freeGraphDiscovererName, ProjectConstants.openStackProjectName};
             final JComboBox comboBox = new JComboBox(projectTypeNames);
             comboBox.setBounds(108, 47, 277, 22);
             //Set default project type

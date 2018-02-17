@@ -224,6 +224,14 @@ public class TopologyManagerFrame extends JFrame{
 
             this.getRootPane().getJMenuBar().getMenu(7).getMenuComponent(3).setEnabled(true);
 
+        } else if (new File(projectPath, ProjectConstants.openStackProjectType + ".pfl").exists()) {
+            this.setProjectType(ProjectConstants.openStackProjectType);
+            this.setViewerConfig(ProjectConstants.openStackProjectType);
+            this.getRootPane().getJMenuBar().getMenu(1).getMenuComponent(0).setEnabled(true);
+            this.getRootPane().getJMenuBar().getMenu(1).getMenuComponent(1).setEnabled(true);
+
+            this.getRootPane().getJMenuBar().getMenu(7).getMenuComponent(3).setEnabled(true);
+
         } else {
             JOptionPane.showMessageDialog(this, "Unknown project type");
             return;

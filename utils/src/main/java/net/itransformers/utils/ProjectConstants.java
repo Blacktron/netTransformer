@@ -29,10 +29,12 @@ public class ProjectConstants {
     public static final String snmpProjectName = "SNMP Network Discovery ";
     public static final String bgpDiscovererName = "BGP Peering Map";
     public static final String freeGraphDiscovererName = "Free Graph";
+    public static final String openStackProjectName = "OpenStack";
 
     public static final String snmpProjectType = "ipNetworkDiscovery";
     public static final String bgpDiscovererProjectType = "bgpMapDiscovery";
     public static final String freeGraphProjectType = "freeGraph";
+    public static final String openStackProjectType = "openStackDiscovery";
 
 
     public static final String networkDirName = ".";
@@ -57,6 +59,8 @@ public class ProjectConstants {
             return ProjectConstants.bgpDiscovererName;
         else if (projectType.equals(ProjectConstants.freeGraphProjectType))
             return ProjectConstants.freeGraphDiscovererName;
+        else if (projectType.equals(ProjectConstants.openStackProjectType))
+            return ProjectConstants.openStackProjectName;
         else
             return "unknown";
     }
@@ -70,6 +74,8 @@ public class ProjectConstants {
             return ProjectConstants.bgpDiscovererProjectType;
         else if (projectName.equals(ProjectConstants.freeGraphDiscovererName))
             return ProjectConstants.freeGraphProjectType;
+        else if (projectName.equals(ProjectConstants.openStackProjectName))
+            return ProjectConstants.openStackProjectType;
         else
             return "unknown";
     }
