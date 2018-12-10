@@ -69,7 +69,7 @@ public class CliDiscoveryLauncher {
                     "  The project folder is important sicne we will store your discovered data,connection details and\n"+
                     "  discovery resources in it. Each discovery run will create a new \"version\" of your network into your\n"+
                     "  projectPath folder.\n"+
-                    "  java -jar netTransformer.jar --create=y --name=myProject --type=["+ ProjectConstants.snmpProjectType+", "+ProjectConstants.bgpDiscovererProjectType+", "+ProjectConstants.freeGraphProjectType+"] --baseDir=[Path to your projects folder].\"\n"+
+                    "  java -jar netTransformer.jar --create=y --name=myProject --type=["+ ProjectConstants.snmpProjectType+", "+ProjectConstants.bgpDiscovererProjectType+", "+ProjectConstants.freeGraphProjectType+", "+ProjectConstants.openStackProjectType+"] --baseDir=[Path to your projects folder].\"\n"+
                     "\n" +
                     "  Step 2: Run again as many times as you wish netTransformer. It will discover your network and will store \n" +
                     "  the discovered data, in a new version folder into your projectPath folder.\n"+

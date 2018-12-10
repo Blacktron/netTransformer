@@ -22,11 +22,17 @@
 package net.itransformers.topologyvierwer.gui.launcher;
 
 import net.itransformers.topologyviewer.gui.TopologyManagerFrame;
+import org.openstack4j.api.OSClient.OSClientV3;
+import org.openstack4j.core.transport.Config;
+import org.openstack4j.model.common.Identifier;
+import org.openstack4j.model.network.Router;
+import org.openstack4j.openstack.OSFactory;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.AccessControlException;
+import java.util.List;
 import java.util.Properties;
 
 public class TopologyViewerLauncher {
@@ -70,6 +76,17 @@ public class TopologyViewerLauncher {
         //frame.setPath();
         frame.init(new File(baseDir));
 
+        Identifier domainIdentifier = Identifier.byId("default");
+
+        OSClientV3 os = OSFactory.builderV3()
+                                .endpoint("http://193.19.175.200:5000/v3")
+                                .credentials("nbu8", "nbu@", Identifier.byName("Default"))
+                                .scopeToProject(Identifier.byId("e29f77ac9caf4d0683b5cc079407df80"))
+                                .authenticate();
+        System.out.println("Authenticated");
+
+        List<? extends Router> routers = os.networking().router().list();
+        System.out.println("Routers: " + routers);
     }
 
     private static void printUsage(String msg) {
